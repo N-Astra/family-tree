@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Family Tree</title>
+
+    <!-- Treant.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/vendor/perfect-scrollbar.css" />
+
+    <!-- Optional styling -->
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .node { background: #fff; padding: 10px; border: 2px solid #4CAF50; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">My Family Tree</h1>
+
+    <!-- Treant.js container -->
+    <div id="tree-simple"></div>
+
+    <!-- Treant.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/vendor/raphael.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.js"></script>
+
+    <script>
+        // Define nodes
+        var chart_config = {
+            chart: {
+                container: "#tree-simple",
+                rootOrientation: "NORTH",
+                nodeAlign: "BOTTOM",
+                connectors: { type: 'step' },
+                node: { HTMLclass: 'node' }
+            },
+            nodeStructure: {
+                text: { name: "Grandparent" },
+                children: [
+                    {
+                        text: { name: "Parent 1" },
+                        children: [
+                            { text: { name: "Child 1" } },
+                            { text: { name: "Child 2" } }
+                        ]
+                    },
+                    {
+                        text: { name: "Parent 2" },
+                        children: [
+                            { text: { name: "Child 3" } }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        new Treant(chart_config);
+    </script>
+</body>
+</html>
